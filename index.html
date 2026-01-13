@@ -5,25 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lancer Press | The Location Folio</title>
     <style>
-        /* --- 1. THE CHASSIS (Global Reset & Typography) --- */
+        /* --- 1. THE CHASSIS (Typography & Reset) --- */
         :root {
+            /* Dark Slate Blue to match logo background */
+            --midnight: #2C3E50; 
             --onyx: #111111;
-            --silver: #E0E0E0;
-            --white: #FFFFFF;
-            --accent: #C5A065; /* "Champagne Gold" for subtle luxury */
+            --paper: #f9f9f9;
+            --gold: #C5A065; 
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: var(--white);
+            background-color: var(--paper);
             color: var(--onyx);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 2. THE ENGINE ROOM (Layout) --- */
+        /* --- 2. THE HEADER (Brand Identity) --- */
+        header {
+            background-color: var(--midnight);
+            padding: 25px 0;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            
+            /* Aligns everything to the LEFT */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center; 
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .slogan {
+            color: var(--gold);
+            
+            /* Matches the H2 ("The White Glove Service") style */
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 0.75rem; 
+            text-transform: uppercase;
+            letter-spacing: 2.5px; /* Wide tracking for technical feel */
+            font-weight: 700;
+            
+            /* Positioning */
+            margin-left: 25px; /* Space between logo and text */
+            margin-top: 4px;   /* Visual alignment correction */
+        }
+
+        /* --- 3. THE LAYOUT (Menu Style) --- */
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -34,174 +74,174 @@
             margin-bottom: 100px;
         }
 
-        /* --- 3. TYPOGRAPHY (The Voice) --- */
         h1 {
             font-family: "Georgia", serif;
             font-weight: 300;
-            font-size: 3rem;
+            font-size: 3.2rem;
             line-height: 1.1;
             margin-bottom: 30px;
-            letter-spacing: -0.5px;
+            color: var(--midnight);
         }
 
         h2 {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             font-weight: 700;
-            border-bottom: 1px solid var(--onyx);
+            color: var(--gold);
+            border-bottom: 1px solid #ddd;
             padding-bottom: 15px;
             margin-bottom: 30px;
-            display: inline-block;
         }
 
         p {
-            font-size: 1.125rem;
+            font-size: 1.2rem;
             font-weight: 300;
             color: #444;
-            max-width: 650px;
+            max-width: 680px;
             margin-bottom: 25px;
         }
 
-        .lead {
-            font-size: 1.4rem;
-            color: var(--onyx);
-            font-weight: 400;
-        }
-
-        .price-tag {
-            font-family: "Georgia", serif;
-            font-size: 2rem;
-            color: var(--onyx);
-            margin-top: 10px;
-            display: block;
-        }
-
-        /* --- 4. THE SERVICE MENU (Grid) --- */
-        .service-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            border-top: 1px solid #eee;
-            padding-top: 40px;
+        /* --- 4. THE PRICING (The "Bill") --- */
+        .menu-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
         .menu-item {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+            margin-bottom: 10px;
         }
 
-        .menu-item strong {
-            font-weight: 600;
-            font-size: 1.1rem;
+        .menu-title {
+            font-family: "Georgia", serif;
+            font-size: 1.5rem;
+            color: var(--midnight);
         }
 
-        .menu-item span {
-            color: #888;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .price {
+            font-family: "Georgia", serif;
+            font-size: 1.5rem;
+            color: var(--midnight);
+        }
+
+        .menu-desc {
+            font-size: 0.95rem;
+            color: #777;
+            font-style: italic;
         }
 
         /* --- 5. THE FOOTER (Compliance) --- */
         footer {
-            background-color: #F5F5F5;
+            background-color: #e5e5e5;
             padding: 60px 0;
             margin-top: 100px;
             font-size: 0.85rem;
             color: #666;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #ccc;
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
+        .footer-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
 
-        .legal-block strong {
-            color: var(--onyx);
-        }
-
-        /* Mobile Adjustments */
-        @media (min-width: 600px) {
-            .service-grid { grid-template-columns: 1fr 1fr; }
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            
+            /* Stack logo and slogan vertically on mobile */
+            .header-inner { flex-direction: column; align-items: flex-start; }
+            .slogan { margin-left: 0; margin-top: 15px; }
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <div class="header-inner">
+            <img src="logo.png" alt="Lancer Press Logo" class="logo">
+            
+            <div class="slogan">Precision for Prime Property</div>
+        </div>
+    </header>
+
     <div class="container">
-
-        <header style="margin-bottom: 80px;">
-            <div style="font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem;">Lancer Press</div>
-        </header>
-
+        
         <section>
-            <h1>Not a map.<br>A precision instrument.</h1>
-            <p class="lead">We do not sell files. We engineer location assets for prime real estate.</p>
+            <h1>Precision Engineering <br>for the Prime Market.</h1>
             <p>
-                Like a grand tourer, a property map must balance technical performance with aesthetic restraint.
-                Standard cartography is noisy, cluttered, and generic.
-                Lancer Press strips away the excess to reveal the signal: the parks, the water, and the connectivity that define a multi-million pound listing.
+                A multi-million pound listing is a high-performance vehicle. It demands a chassis to match. 
+                We do not produce "maps" in the traditional sense. We engineer <strong>location assets</strong> with the same restraint and technical precision found in automotive design.
+            </p>
+            <p>
+                Sharp lines. Infinite vector resolution. Zero clutter. 
+                Like a grand tourer, our work is designed to look effortless while concealing a powerful engine of verified cadastral data underneath.
             </p>
         </section>
 
         <section>
-            <h2>The Concierge Service</h2>
-            <p class="lead">Chef's Table. No Menu.</p>
+            <h2>The White Glove Service</h2>
             <p>
-                You should not have to learn GIS software to sell a penthouse.
-                We operate on a "White Glove" basis. You simply provide the property address; we handle the entire cartographic production line.
+                <strong>We operate like a private kitchen.</strong> There is no software to learn. No "drag-and-drop" frustration.
             </p>
             <p>
-                From manual cadastral verification (checking the garden boundary against satellite imagery) to color-matching the vector lines to your agency's brand palette—every detail is plated and served ready for publication.
+                You simply provide the address, and we take care of the rest. 
+                Like a fine dining experience, every element is plated for you by experts. 
+                From the color-matching of local parks to your brand palette, to the manual verification of garden boundaries—we serve the finished product, ready for your brochure.
             </p>
         </section>
 
         <section>
-            <h2>The Investment</h2>
-            <div class="service-grid">
-                <div>
-                    <div class="menu-item">
-                        <strong>The Complete Folio</strong>
-                    </div>
-                    <p style="font-size: 1rem; margin-top: 10px;">
-                        One flat fee covers the entire suite. No hidden "add-ons."
-                        Includes the Vector PDF (Print), Retina PNG (Web), and Vertical Crop (Social).
-                    </p>
+            <h2>The Folio Selection</h2>
+            <div class="menu-card">
+                <div class="menu-item">
+                    <span class="menu-title">The Complete Folio Suite</span>
+                    <span class="price">£250</span>
                 </div>
-                <div style="text-align: right;">
-                    <span class="price-tag">£240</span>
-                    <span style="font-size: 0.8rem; color: #888;">PER PROJECT / EX VAT</span>
+                <div class="menu-desc">
+                    One flat project fee. Includes Vector PDF (Print), Retina PNG (Web), and Vertical 9:16 Crop (Social).
                 </div>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+                <p style="font-size: 0.9rem; margin: 0;">
+                    <em>*Service includes 48-hour turnaround and full IP transfer.</em>
+                </p>
             </div>
         </section>
 
         <section>
-            <h2>Enquiries</h2>
-            <p>For commission availability and agency partnerships:</p>
-            <p><strong><a href="mailto:hello@lancerpress.com" style="color: inherit; text-decoration: none; border-bottom: 1px solid #000;">hello@lancerpress.com</a></strong></p>
+            <h2>Reservations</h2>
+            <p>
+                We currently accept commissions from select agency partners. <br>
+                For availability: 
+                <strong><a href="mailto:andreiulanovonline@gmail.com" style="color: inherit; text-decoration: none; border-bottom: 2px solid var(--gold);">Request Availability</a></strong>
+            </p>
         </section>
 
     </div>
 
     <footer>
-        <div class="container footer-content">
-            <div class="legal-block">
-                <strong>Lancer Press Ltd</strong><br>
+        <div class="footer-grid">
+            <div>
+                <strong style="color: #333;">Lancer Press Ltd</strong><br>
                 Registered in England and Wales.<br>
                 Company Number: <strong>16953195</strong><br>
-                Registered Office: <strong>86-90 Paul Street, London EC2A 4NE, England</strong>
+                Registered Office: <strong>86-90 Paul Street, London EC2A 4NE</strong>
             </div>
 
-            <div class="legal-block" style="max-width: 300px;">
-                <strong>Privacy & Standards</strong><br>
-                We process business data in strict accordance with the UK Data Protection Act 2018.
-                Lancer Press serves B2B clients exclusively.
-                <br><br>
+            <div>
+                <strong style="color: #333;">Privacy & Standards</strong><br>
+                Lancer Press provides B2B services exclusively.<br>
+                Data is processed in accordance with the UK Data Protection Act 2018.<br>
                 &copy; 2026 Lancer Press Ltd.
             </div>
         </div>
